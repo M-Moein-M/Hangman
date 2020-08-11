@@ -28,7 +28,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-3 start-btn-div">
-            <button type="button" class="start-btn btn btn-warning">Hit it</button>
+            <button type="button" class="start-btn btn btn-dark">Hit it</button>
         </div>
     </div>
 
@@ -38,13 +38,28 @@
 <div class="container game hide">
     <div class="row justify-content-around">
         <div class="hangman col-sm-3">
-            <img src="assets/man%20(1).png" alt="random image" width="100%" height="500px">
+            <img class="hangman-image" src="assets/man1.png" alt="random image" width="100%" height="500px">
         </div>
-        <div class="hangman col-sm-3 ">
-            <h1 class="word">_ _ A _ _ _ _</h1>
+        <div class="hangman col-sm-6 ">
+            <h1 class="word"></h1>
+            <div class="alphabet-div">
+<!--                <button type="button" class="alphabet-btn btn btn-warning">G</button>-->
+            </div>
         </div>
     </div>
+</div>
 
+<div class="container after-game hide">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <h1 class="after-game-title"></h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-3 play-again-btn-div">
+            <button type="button" class="play-again-btn btn btn-dark">Hit it again COWBOY/GIRL</button>
+        </div>
+    </div>
 </div>
 
 <script src="app.js"></script>

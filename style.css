@@ -3,18 +3,18 @@
 }
 
 body {
-    background-color: #ffd383;
+    background-color: #607ca0;
 }
 
-.start-btn-div{
+.start-btn-div, .play-again-btn-div{
     margin-top: 50px;
 }
-.start-btn {
+.start-btn, .play-again-btn {
     width: 100%;
     height: 60px;
 }
 
-.intro-title {
+.intro-title, .after-game-title {
     text-align: center;
     margin-top: 100px;
     font-weight: bold;
@@ -30,4 +30,18 @@ body {
 
 .word{
     align-content: center;
+}
+
+.alphabet-btn{
+    margin: 1px;
+    width: 40px;
+}
+
+.alphabet-div{
+    margin-top: 60px;
+}
+
+.hangman-image{
+    border-radius: 5px;
+    background-color: #e39f27;
 }
