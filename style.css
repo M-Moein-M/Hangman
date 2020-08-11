@@ -1,0 +1,33 @@
+* {
+    font-family: "Century Gothic";
+}
+
+body {
+    background-color: #ffd383;
+}
+
+.start-btn-div{
+    margin-top: 50px;
+}
+.start-btn {
+    width: 100%;
+    height: 60px;
+}
+
+.intro-title {
+    text-align: center;
+    margin-top: 100px;
+    font-weight: bold;
+}
+
+.hide{
+    display: none;
+}
+
+.game{
+    margin-top: 50px;
+}
+
+.word{
+    align-content: center;
+}
