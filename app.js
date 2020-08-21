@@ -1,12 +1,3 @@
-// how to send a get request with XML HTTP request
-/* const Http = new XMLHttpRequest();
-const url='http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d328f2c99bab8eddaaf22e3a0ae087a8';
-Http.open("GET", url);
-Http.send();
-
-Http.onreadystatechange = (e) => {
-    console.log(Http.responseText)
-}*/
 
 function game() {
     let WORD;  // this is the word that user should guess through the game
@@ -14,23 +5,34 @@ function game() {
     let hangmanState;  // if player reaches state 7 it means he/she lost the round
     const FatalState = 7;
 
+    async function getWord() {
+        try {
+            let url = 'https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=odltax03v4i0mtn04tdg5fj1q95crhp6s6ml0sp9t9vfdv7uo';
+            let res = (await fetch(url)).json();
+            res.then(data=>startNewGame(data.word));
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     let startBtn = document.querySelector('.start-btn');
     startBtn.addEventListener('click', function () {
         document.querySelector('.intro').classList.add('hide');
         document.querySelector('.game').classList.remove('hide');
-        startNewGame();
+        getWord();
     });
     let playAgainBtn = document.querySelector('.play-again-btn');
     playAgainBtn.addEventListener('click', function () {
         document.querySelector('.after-game').classList.add('hide');
         document.querySelector('.game').classList.remove('hide');
-        startNewGame();
+        getWord();
     })
 
     // game
-    function startNewGame() {
+    function startNewGame(word) {
         document.querySelector('.hangman-image').src = "assets/man1.png";
-        let wordInput = 'javascript';
+        let wordInput = word;
         WORD = wordInput.toUpperCase();
         foundCharacters = [];
         hangmanState = 1;
@@ -71,16 +73,14 @@ function game() {
     }
 
     function gameOver() {
-        console.log('GAME OVER');
         document.querySelector('.game').classList.add('hide');
-        document.querySelector('.after-game-title').innerHTML = "LOSING ISN'T ALWAYS BaD... THE ANSWER WAS '"+WORD+"'";
+        document.querySelector('.after-game-title').innerHTML = "LOSING ISN'T ALWAYS BaD... THE ANSWER WAS '" + WORD + "'";
         document.querySelector('.after-game').classList.remove('hide');
     }
-
     function userWon() {
-        console.log('WON');
+
         document.querySelector('.game').classList.add('hide');
-        document.querySelector('.after-game-title').innerHTML = "WINNING IS ALWAYS GooD... THE ANSWER WAS '"+WORD+"'";
+        document.querySelector('.after-game-title').innerHTML = "WINNING IS ALWAYS GooD... THE ANSWER WAS '" + WORD + "'";
         document.querySelector('.after-game').classList.remove('hide');
 
     }
